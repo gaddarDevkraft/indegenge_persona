@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: pharma-persona-backend
+    env: python
+    root: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: OPENAI_API_KEY
+        sync: false
